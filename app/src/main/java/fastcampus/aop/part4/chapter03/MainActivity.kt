@@ -7,6 +7,8 @@ import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import fastcampus.aop.part4.chapter03.databinding.ActivityMainBinding
+import fastcampus.aop.part4.chapter03.model.LocationLatLngEntity
+import fastcampus.aop.part4.chapter03.model.SearchResultEntity
 
 class MainActivity : AppCompatActivity() {
 
@@ -40,6 +42,19 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setData() {
+        val dataList = (0..10).map {
+            SearchResultEntity(
+                name = "빌딩${it}",
+                fullAddress = "주소${it}",
+                locationLatLngEntity = LocationLatLngEntity(
+                    it.toFloat(),
+                    it.toFloat()
+                )
+            )
+        }
 
+        adapter.setSearchResultList(dataList) {
+
+        }
     }
 }
