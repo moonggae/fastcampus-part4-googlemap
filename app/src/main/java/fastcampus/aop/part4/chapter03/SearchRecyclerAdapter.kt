@@ -1,18 +1,17 @@
-package fastcampus.aop.part3.chapter03
+package fastcampus.aop.part4.chapter03
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ListView
 import androidx.recyclerview.widget.RecyclerView
-import fastcampus.aop.part3.chapter03.databinding.ViewholderSearchResultItemBinding
+import fastcampus.aop.part4.chapter03.databinding.ViewholderSearchResultItemBinding
 
-class SearchRecyclerAdapter(
-    private val searchResultClickListener: (Any) -> Unit
-) :
+class SearchRecyclerAdapter() :
     RecyclerView.Adapter<SearchRecyclerAdapter.SearchResultItemViewHolder>() {
 
     private var searchResultList : List<Any> = listOf()
+    private lateinit var searchResultClickListener: (Any) -> Unit
 
     inner class SearchResultItemViewHolder(val binding : ViewholderSearchResultItemBinding, val searchResultClickListener : (Any) -> Unit) : RecyclerView.ViewHolder(binding.root){
         fun bindData(data : Any) = with(binding) {
@@ -38,4 +37,9 @@ class SearchRecyclerAdapter(
     }
 
     override fun getItemCount(): Int  = 10
+
+    fun setSearchResultListener(searchResultList : List<Any>, searchResultClickListener: (Any) -> Unit){
+        this.searchResultList = searchResultList
+        this.searchResultClickListener = searchResultClickListener
+    }
 }
