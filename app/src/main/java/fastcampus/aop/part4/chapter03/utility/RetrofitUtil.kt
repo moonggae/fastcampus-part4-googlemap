@@ -1,6 +1,6 @@
 package fastcampus.aop.part4.chapter03.utility
 
-import fastcampus.aop.part4.chapter03.BuildConfig
+import androidx.viewbinding.BuildConfig
 import fastcampus.aop.part4.chapter03.Url
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
