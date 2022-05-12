@@ -8,6 +8,7 @@ import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
+import fastcampus.aop.part4.chapter03.MapActivity.Companion.SEARCH_RESULT_EXTRA_KEY
 import fastcampus.aop.part4.chapter03.databinding.ActivityMainBinding
 import fastcampus.aop.part4.chapter03.model.LocationLatLngEntity
 import fastcampus.aop.part4.chapter03.model.SearchResultEntity
@@ -79,7 +80,9 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
         }
 
         adapter.setSearchResultList(dataList) {
-            startActivity(Intent(this, MapActivity::class.java))
+            startActivity(Intent(this, MapActivity::class.java).apply {
+                putExtra(SEARCH_RESULT_EXTRA_KEY, it)
+            })
         }
     }
 
